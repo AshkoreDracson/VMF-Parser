@@ -62,26 +62,7 @@ namespace VMFParser
 
             if (node.Name == "versioninfo") // Version info
             {
-                switch (key)
-                {
-                    case "editorversion":
-                        map.VersionInfo.EditorVersion = int.Parse(value);
-                        break;
-                    case "editorbuild":
-                        map.VersionInfo.EditorBuild = int.Parse(value);
-                        break;
-                    case "mapversion":
-                        map.VersionInfo.MapVersion = int.Parse(value);
-                        break;
-                    case "formatversion":
-                        map.VersionInfo.FormatVersion = int.Parse(value);
-                        break;
-                    case "prefab":
-                        map.VersionInfo.Prefab = int.Parse(value) == 1;
-                        break;
-                    default:
-                        break;
-                }
+                map.VersionInfo.SetProperty(key, value);
             }
         }
 

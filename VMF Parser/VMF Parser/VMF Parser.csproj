@@ -35,6 +35,8 @@
   <ItemGroup>
     <Compile Include="Exceptions\ParseException.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="MapClass.cs" />
+    <Compile Include="MapProperty.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

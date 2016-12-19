@@ -16,6 +16,13 @@
                 return rootParent;
             }
         }
+        public Node RootParentOrDefault
+        {
+            get
+            {
+                return RootParent ?? this;
+            }
+        }
 
         public Node(string name, Node parent)
         {

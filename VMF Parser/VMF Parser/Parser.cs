@@ -5,9 +5,9 @@ namespace VMFParser
     class Parser
     {
         // Regex
-        Regex commentRegex = new Regex(@"\/\/(.+)");
+        Regex commentRegex = new Regex(@"\/\/(.*)");
+        Regex propertyRegex = new Regex("\"(.*)\".+\"(.*)\"");
 
-        int cur = 0;
         string[] data;
         Map map;
 
@@ -19,26 +19,31 @@ namespace VMFParser
         public Map Parse()
         {
             Map map = new Map();
-            cur = 0;
-            ParseStep();
+            Node current = null;
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                string line = data[i];
+                if (IsEmpty(line)) continue;
+
+                Match propertyMatch = propertyRegex.Match(line);
+                if (propertyMatch != null)
+                {
+                    
+                }
+            }
+
             return map;
-        }
-
-        void ParseStep(Node node = null)
-        {
-            if (cur >= data.Length - 1) return;
-
-            string s = data[cur];
-            s = DismissComment(s).Trim().Replace("\t", ""); // Clean string of comments, extra spaces & tabs
-
-            cur++;
-            ParseStep(node);
         }
 
 
         string DismissComment(string s)
         {
             return s.Remove(commentRegex.Match(s).Index);
+        }
+        bool IsEmpty(string s)
+        {
+            return DismissComment(s).Trim().Length <= 0;
         }
     }
 }

@@ -60,9 +60,20 @@ namespace VMFParser
             if (node == null)
                 throw new ParseException("Property out of a scope");
 
-            if (node.Name == "versioninfo") // Version info
+            if (node.RootParentOrDefault.Name == "versioninfo") // Version info
             {
                 map.VersionInfo.SetProperty(key, value);
+            }
+            else if (node.RootParentOrDefault.Name == "world") // World info
+            {
+                if (node.Name == "world") // Direct parent of world info
+                {
+                    map.World.SetProperty(key, value);
+                }
+                else
+                {
+
+                }
             }
         }
 

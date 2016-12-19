@@ -6,6 +6,8 @@
         {
             get
             {
+                if (!_properties.ContainsKey("editorversion")) return null;
+
                 return _properties["editorversion"].Integer;
             }
         }
@@ -13,6 +15,8 @@
         {
             get
             {
+                if (!_properties.ContainsKey("editorbuild")) return null;
+
                 return _properties["editorbuild"].Integer;
             }
         }
@@ -20,6 +24,8 @@
         {
             get
             {
+                if (!_properties.ContainsKey("mapversion")) return null;
+
                 return _properties["mapversion"].Integer;
             }
         }
@@ -27,6 +33,8 @@
         {
             get
             {
+                if (!_properties.ContainsKey("formatversion")) return null;
+
                 return _properties["formatversion"].Integer;
             }
         }
@@ -34,6 +42,8 @@
         {
             get
             {
+                if (!_properties.ContainsKey("prefab")) return false;
+
                 return _properties["prefab"].Boolean;
             }
         }

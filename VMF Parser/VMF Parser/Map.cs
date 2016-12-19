@@ -7,7 +7,7 @@ namespace VMFParser
     {
         public VersionInfo VersionInfo { get; private set; }
 
-        public Map Parse(string path)
+        public static Map Parse(string path)
         {
             byte[] data = File.ReadAllBytes(path);
             Parser parser = new Parser(new Map(), data);

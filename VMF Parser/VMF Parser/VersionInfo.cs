@@ -1,6 +1,6 @@
 ﻿namespace VMFParser
 {
-    public struct VersionInfo
+    public class VersionInfo
     {
         public int EditorVersion { get; set; }
         public int EditorBuild { get; set; }

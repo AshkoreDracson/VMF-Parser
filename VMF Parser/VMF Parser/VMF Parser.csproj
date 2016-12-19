@@ -33,6 +33,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\ParseException.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Parser.cs" />

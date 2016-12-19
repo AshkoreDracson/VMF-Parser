@@ -29,5 +29,20 @@
             Name = name;
             Parent = parent;
         }
+
+        public bool IsPartOf(string name)
+        {
+            Node n = this;
+
+            while (n != null)
+            {
+                if (n.Name == name)
+                    return true;
+
+                n = n.Parent;
+            }
+
+            return false;
+        }
     }
 }

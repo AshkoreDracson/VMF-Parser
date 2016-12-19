@@ -1,4 +1,6 @@
-﻿namespace VMFParser
+﻿using System.Collections.Generic;
+
+namespace VMFParser
 {
     public class World : MapClass
     {
@@ -6,6 +8,8 @@
         {
             get
             {
+                if (!_properties.ContainsKey("id")) return null;
+
                 return _properties["id"].Integer;
             }
         }
@@ -13,6 +17,8 @@
         {
             get
             {
+                if (!_properties.ContainsKey("mapversion")) return null;
+
                 return _properties["mapversion"].Integer;
             }
         }
@@ -29,6 +35,13 @@
             {
                 return _properties["skyname"].String;
             }
+        }
+
+        public Dictionary<int, Solid> Solids { get; private set; }
+
+        public World()
+        {
+            Solids = new Dictionary<int, Solid>();
         }
     }
 }

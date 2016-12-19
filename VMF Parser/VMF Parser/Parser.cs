@@ -10,7 +10,7 @@ namespace VMFParser
 
         string[] data;
 
-        public Parser(Map map, byte[] data)
+        public Parser(byte[] data)
         {
             this.data = Encoding.UTF8.GetString(data).Replace("\r", "").Replace("\t", "").Split('\n');
         }
@@ -72,7 +72,14 @@ namespace VMFParser
                 }
                 else
                 {
+                    if (node.Name == "solid") // Direct parent of solid
+                    {
 
+                    }
+                    else
+                    {
+
+                    }
                 }
             }
         }
